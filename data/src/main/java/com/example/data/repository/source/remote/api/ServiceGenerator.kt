@@ -1,4 +1,4 @@
-package com.example.data.network.api
+package com.example.data.repository.source.remote.api
 
 import com.google.gson.Gson
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory

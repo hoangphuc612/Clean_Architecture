@@ -6,7 +6,7 @@ import io.reactivex.rxjava3.core.Single
 
 interface GitHubRepository {
 
-    suspend fun searchUsers(userName: String): Single<List<User>>
+    fun searchUser(userName: String, page: Int): Single<List<User>>
 
-    suspend fun searchRepo(repoName: String): Single<List<Repo>>
+    fun searchRepo(repoName: String, page: Int): Single<List<Repo>>
 }

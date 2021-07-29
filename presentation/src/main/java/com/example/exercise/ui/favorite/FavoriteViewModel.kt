@@ -1,5 +1,7 @@
 package com.example.exercise.ui.favorite
 
-class FavoriteViewModel {
+import com.example.exercise.base.BaseViewModel
+
+class FavoriteViewModel : BaseViewModel() {
 
 }

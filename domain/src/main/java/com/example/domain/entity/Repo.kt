@@ -1,7 +1,7 @@
 package com.example.domain.entity
 
 data class Repo(
-    val id: Long = 0,
-    val fullName: String = "",
-    val description: String = ""
-)
+    val id: Int = 0,
+    val name: String = "",
+    val description: String? = ""
+) : BaseEntity()

@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -54,7 +54,6 @@ dependencies {
     implementation "io.insert-koin:koin-core:3.0.1"
     implementation "io.insert-koin:koin-android:3.0.1"
     implementation "io.insert-koin:koin-android-ext:3.0.1"
-    implementation "io.insert-koin:koin-androidx-workmanager:3.0.1"
 
     //SDP
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
@@ -67,8 +66,4 @@ dependencies {
     implementation 'com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.4'
-
-    //Hilt
-    implementation "com.google.dagger:hilt-android:2.36"
-    kapt "com.google.dagger:hilt-compiler:2.36"
 }
