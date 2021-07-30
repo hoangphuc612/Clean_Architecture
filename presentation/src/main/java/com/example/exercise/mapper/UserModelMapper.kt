@@ -5,6 +5,17 @@ import com.example.exercise.model.UserModel
 
 class UserModelMapper : PresentationMapper<User, UserModel> {
 
-    override fun toModel(entity: User): UserModel =
-        UserModel(id = entity.id, avatar_url = entity.avatar_url, login = entity.login)
+    override fun toModel(domainModel: User): UserModel =
+        UserModel(
+            id = domainModel.id,
+            avatar_url = domainModel.avatar_url,
+            login = domainModel.login
+        )
+
+    override fun toDomain(presentationModel: UserModel): User =
+        User(
+            id = presentationModel.id,
+            avatar_url = presentationModel.avatar_url,
+            login = presentationModel.login
+        )
 }

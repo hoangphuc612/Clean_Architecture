@@ -3,6 +3,7 @@ package com.example.exercise
 import android.app.Application
 import com.example.data.di.networkModule
 import com.example.data.di.repositoryModule
+import com.example.data.di.storageModule
 import com.example.exercise.di.appModule
 import com.example.exercise.di.mapperModule
 import com.example.exercise.di.viewModelModule
@@ -18,6 +19,7 @@ class Application : Application() {
             modules(
                 appModule,
                 networkModule,
+                storageModule,
                 repositoryModule,
                 mapperModule,
                 viewModelModule,

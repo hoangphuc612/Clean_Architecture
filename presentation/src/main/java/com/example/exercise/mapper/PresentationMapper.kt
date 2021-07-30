@@ -3,6 +3,8 @@ package com.example.exercise.mapper
 import com.example.domain.entity.BaseEntity
 import com.example.exercise.model.PresentationModel
 
-interface PresentationMapper<Entity : BaseEntity, PModel : PresentationModel> {
-    fun toModel(entity: Entity): PModel
+interface PresentationMapper<DModel : BaseEntity, PModel : PresentationModel> {
+    fun toModel(domainModel: DModel): PModel
+
+    fun toDomain(presentationModel: PModel): DModel
 }
