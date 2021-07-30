@@ -10,6 +10,6 @@ class DatabaseBuilder {
         Room.databaseBuilder(
             context.applicationContext,
             AppDatabase::class.java,
-            RepoEntity.TABLE_NAME
+            RepoEntity.REPO_TABLE
         ).build()
 }

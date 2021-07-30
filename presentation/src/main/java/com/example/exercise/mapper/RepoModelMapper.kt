@@ -5,6 +5,19 @@ import com.example.exercise.model.RepoModel
 
 class RepoModelMapper : PresentationMapper<Repo, RepoModel> {
 
-    override fun toModel(entity: Repo): RepoModel =
-        RepoModel(id = entity.id, name = entity.name, description = entity.description)
+    override fun toModel(domainModel: Repo): RepoModel =
+        RepoModel(
+            id = domainModel.id,
+            name = domainModel.name,
+            description = domainModel.description,
+            isFavorite = domainModel.isFavorite
+        )
+
+    override fun toDomain(presentationModel: RepoModel): Repo =
+        Repo(
+            id = presentationModel.id,
+            name = presentationModel.name,
+            description = presentationModel.description,
+            isFavorite = presentationModel.isFavorite
+        )
 }

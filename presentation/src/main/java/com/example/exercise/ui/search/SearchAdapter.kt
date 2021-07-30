@@ -2,8 +2,6 @@ package com.example.exercise.ui.search
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.exercise.ui.search.search_repo.SearchRepoFragment
-import com.example.exercise.ui.search.search_user.SearchUserFragment
 
 class SearchAdapter(
     fragment: Fragment,
@@ -14,15 +12,6 @@ class SearchAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return fragments[position]
-    }
-
-    fun search(keyword: String) {
-        fragments.forEach {
-            when (it) {
-                is SearchUserFragment -> it.searchUser(keyword)
-                is SearchRepoFragment -> it.searchRepo(keyword)
-            }
-        }
     }
 
     fun addFragments(fragments: List<Fragment>) {
