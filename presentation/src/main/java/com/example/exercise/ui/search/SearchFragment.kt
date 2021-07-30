@@ -2,19 +2,12 @@ package com.example.exercise.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
-import com.example.exercise.R
 import com.example.exercise.databinding.FragmentSearchBinding
 import com.example.exercise.ui.search.search_repo.SearchRepoFragment
 import com.example.exercise.ui.search.search_user.SearchUserFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 
 class SearchFragment : Fragment() {
@@ -34,19 +27,6 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        handleEvent()
-    }
-
-    private fun handleEvent() {
-        viewBinding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { searchAdapter.search(it) }
-                viewBinding.searchView.clearFocus()
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?) = false
-        })
     }
 
     private fun initView() {

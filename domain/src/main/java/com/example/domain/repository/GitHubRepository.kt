@@ -9,4 +9,10 @@ interface GitHubRepository {
     fun searchUser(userName: String, page: Int): Single<List<User>>
 
     fun searchRepo(repoName: String, page: Int): Single<List<Repo>>
+
+    fun saveRepo(repo: Repo): Single<Long>
+
+    fun deleteRepo(repo: Repo): Single<Int>
+
+    fun checkFavorite(repoId: Int): Single<Boolean>
 }

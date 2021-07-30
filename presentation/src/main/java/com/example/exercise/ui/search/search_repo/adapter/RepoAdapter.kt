@@ -1,6 +1,7 @@
 package com.example.exercise.ui.search.search_repo.adapter
 
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.example.exercise.R
 import com.example.exercise.base.recyclerview.BaseDiffUtilItemCallback
 import com.example.exercise.base.recyclerview.BaseRecyclerAdapter
@@ -13,20 +14,36 @@ val diffUtil = object : BaseDiffUtilItemCallback<RepoItem>() {
         oldItem == newItem
 }
 
-class RepoAdapter :
-    BaseRecyclerAdapter<RepoItem, ItemSearchRepoBinding, RepoAdapter.RepoViewHolder>(diffUtil) {
+class RepoAdapter(
+    private val onFavoriteClick: (RepoItem) -> Unit
+) : BaseRecyclerAdapter<RepoItem, ItemSearchRepoBinding, RepoAdapter.RepoViewHolder>(diffUtil) {
 
     override fun getItemLayoutResource(viewType: Int) = R.layout.item_search_repo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        RepoViewHolder(getViewHolderDataBinding(parent, viewType) as ItemSearchRepoBinding)
+        RepoViewHolder(
+            getViewHolderDataBinding(parent, viewType) as ItemSearchRepoBinding,
+            onFavoriteClick
+        )
 
-    class RepoViewHolder(binding: ItemSearchRepoBinding) :
-        BaseViewHolder<RepoItem, ItemSearchRepoBinding>(binding) {
+
+    class RepoViewHolder(
+        binding: ItemSearchRepoBinding,
+        private val onFavoriteClick: (RepoItem) -> Unit
+    ) : BaseViewHolder<RepoItem, ItemSearchRepoBinding>(binding) {
 
         override fun bind(itemData: RepoItem) {
             super.bind(itemData)
-            binding.repo = itemData.repoModel
+            binding.run {
+                repo = itemData
+                imageFavoriteRepo.setOnClickListener { onFavoriteClick(itemData) }
+                imageFavoriteRepo.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        root.context,
+                        if (itemData.repoModel.isFavorite) R.drawable.heart else R.drawable.heart_outline
+                    )
+                )
+            }
         }
     }
 }

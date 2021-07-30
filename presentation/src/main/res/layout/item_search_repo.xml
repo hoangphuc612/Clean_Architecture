@@ -8,7 +8,7 @@
 
         <variable
             name="repo"
-            type="com.example.exercise.model.RepoModel" />
+            type="com.example.exercise.ui.search.search_repo.adapter.RepoItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +24,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{repo.name}"
+            android:text="@{repo.repoModel.name}"
             android:textColor="@color/black"
             android:textSize="@dimen/_18sdp"
             app:layout_constraintEnd_toStartOf="@+id/imageFavoriteRepo"
@@ -39,7 +39,7 @@
             android:layout_marginEnd="@dimen/_8sdp"
             android:ellipsize="end"
             android:maxLines="5"
-            android:text="@{repo.description}"
+            android:text="@{repo.repoModel.description}"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintEnd_toStartOf="@+id/imageFavoriteRepo"
@@ -52,8 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:src="@drawable/ic_favorite"
-            android:tint="@color/purple_200"
+            android:src="@drawable/heart_outline"
             app:layout_constraintBottom_toTopOf="@+id/viewDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
